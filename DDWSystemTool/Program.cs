@@ -26,7 +26,7 @@ namespace DDWSystemTool
             }
 
             string mode = args[0];
-            string path = args[1];
+            string path = Path.GetFullPath(args[1]);
 
             switch (mode)
             {
@@ -83,7 +83,7 @@ namespace DDWSystemTool
 
                         if (version == 2)
                         {
-                            DDP2.Create(filePath, rootPath, null);
+                            DDP2.Create(filePath, rootPath, msg => Console.WriteLine(msg));
                             return;
                         }
                         if (version == 3)
