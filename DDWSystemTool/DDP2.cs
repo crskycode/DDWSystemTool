@@ -108,7 +108,7 @@ namespace DDWSystemTool
                 return;
 
             // Ensure the order for entries
-            files.Sort();
+            files.Sort((a, b) => Path.GetFileNameWithoutExtension(a).CompareTo(Path.GetFileNameWithoutExtension(b)));
 
             // Create package
             using (var writer = new BinaryWriter(File.Create(filePath)))
@@ -154,7 +154,7 @@ namespace DDWSystemTool
             for (int i = 0; i < files.Count; i++)
             {
                 var path = files[i];
-                var name = Path.GetFileNameWithoutExtension(path);
+                var name = Path.GetFileName(path);
 
                 // Detail
                 detailOutput?.Invoke($"Add {i:D8} {name}");
