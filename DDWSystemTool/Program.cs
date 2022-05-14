@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 
 namespace DDWSystemTool
 {
@@ -9,6 +10,8 @@ namespace DDWSystemTool
     {
         public static void Main(string[] args)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
             if (args.Length != 2)
             {
                 Console.WriteLine("DDWSystemTool");
