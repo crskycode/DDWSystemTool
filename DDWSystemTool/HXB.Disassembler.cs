@@ -970,6 +970,11 @@ namespace DDWSystemTool.HXB
                         Expr();
                         break;
                     }
+                    case 0x7D:
+                    {
+                        _assembly.Add(address, 1, Instruction.Func);
+                        break;
+                    }
                     case 0xFF: // End Of Script
                     {
                         _assembly.Add(address, 1, Instruction.End);
